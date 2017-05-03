@@ -1,0 +1,4 @@
+WHOISONLINE_USER         = "Пользователь"
+
+
+

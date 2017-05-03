@@ -1,0 +1,176 @@
+# Отрубаем подстановку в URL сессию
+php_flag session.use_trans_sid off
+
+# Отрубаем вывод ошибок
+php_value error_reporting 7
+# Если возникает ошибка 500 закомментируйте или удалите вышестоящие строки
+# и выясните у хостера каким образом можно сделать такие настройки PHP
+
+AddDefaultCharset windows-1251
+
+# Закрываем директории от просмотра
+<FilesMatch "\.(class|functions|inc|modules|templates|templates_c|cache)$">
+  Order allow,deny
+</FilesMatch>
+# RewriteCond %{REQUEST_URI} !^/(class|functions|inc|modules|templates|templates_c|cache)/
+
+# Индексный файл
+DirectoryIndex index.php
+
+# Сжатие (кроме сжатия иногда помогает при появлении непонятных символов на странице)
+# php_flag zlib.output_compression On
+
+# Запрещаем просмотр (листинг) содержимого папки если в нем нету индексного файла
+Options -Indexes
+
+# Своя ошибка 404 (с сохранением URL в адресной строке)
+ErrorDocument 404 /index.php?id=2
+
+#
+Options +FollowSymLinks
+
+<IfModule mod_rewrite.c>
+   # Включаем модреврайт
+   RewriteEngine on
+
+   # Если ставили в корень
+   RewriteBase /
+
+   # Если ставили в папку cms
+   # RewriteBase /cms
+</IfModule>
+
+# ЧПУ для защитного изображения
+RewriteRule ^nospam_([0-9]+).jpeg$ /inc/antispam.php?cp_secureimage=$1 [QSA,L]
+
+# Кэширование на стороне браузера (отдаем нормальные заголовки)
+# Если на сайте не используется защитный код (в форме обратной связи) то строчку ExpiresByType image/jpeg A1 можно заремить
+<IfModule mod_expires.c>
+   # Включаем
+   ExpiresActive On
+
+   # Кэшировать браузером все файлы в течении двух недель (в секундах).
+   ExpiresDefault A1209600
+
+   # Не кэшировать файлы, имеющие тип
+   ExpiresByType text/html A1
+   ExpiresByType image/jpeg A1
+</IfModule>
+
+## ЧПУ для модуля Downloads
+#RewriteRule ^downloads.htm$ index.php?module=download
+#RewriteRule ^downloads,print.htm$ index.php?module=download&print=1
+#RewriteRule ^download,([0-9]+),([0-9]+).htm$ index.php?module=download&action=showfile&file_id=$1&categ=$2
+#RewriteRule ^download,([0-9]+),([0-9]+),print.htm$ index.php?module=download&action=showfile&file_id=$1&categ=$2&print=1
+#RewriteRule ^download_file,([0-9]+),([-_a-zA-Z0-9]+).htm$ index.php?module=download&action=get_file&file_id=$1&pop=1&cp_theme=$2
+#RewriteRule ^nopay_file,([0-9]+),([-_a-zA-Z0-9]+).htm$ index.php?module=download&action=get_nopay_file&file_id=$1&pop=1&cp_theme=$2
+#RewriteRule ^notmine_file,([0-9]+),([-_a-zA-Z0-9]+).htm$ index.php?module=download&action=get_notmine_file&file_id=$1&pop=1&cp_theme=$2
+#RewriteRule ^nouserpay_file,([0-9,]+),([0-9]+),([0-9]+),([-_a-zA-Z0-9]+).htm$ index.php?module=download&action=get_nouserpay_file&diff=$1&val=$2&file_id=$3&pop=1&cp_theme=$4
+#RewriteRule ^download_kategorie,([0-9]+),([0-9]+),([0-9]+),([-_a-zA-Z0-9]+),([-_a-zA-Z0-9]+),([-_a-zA-Z0-9]+).htm$ index.php?module=download&categ=$1&parent=$2&navop=$3&c=$4&page=$5&orderby=$6
+#RewriteRule ^download_kategorie,([0-9]+),([0-9]+),([0-9]+),([-_a-zA-Z0-9]+),([-_a-zA-Z0-9]+).htm$ index.php?module=download&categ=$1&parent=$2&navop=$3&c=$4&page=$5
+#RewriteRule ^download_kategorie,([0-9]+),([0-9]+),([0-9]+),([-_a-zA-Z0-9]+).htm$ index.php?module=download&categ=$1&parent=$2&navop=$3&c=$4
+#RewriteRule ^pay,([0-9,]+),([-_a-zA-Z0-9]+).htm$ index.php?module=download&action=pay&file_id=$1&pop=0&cp_theme=$2
+#RewriteRule ^toreg,([0-9,]+),([-_a-zA-Z0-9]+).htm$ index.php?module=download&action=toreg&file_id=$1&pop=1&cp_theme=$2
+#RewriteRule ^denied,([0-9,]+),([-_a-zA-Z0-9]+).htm$ index.php?module=download&action=get_denied&file_id=$1&pop=1&cp_theme=$2
+
+## ЧПУ для модуля Магазин
+#RewriteRule ^product-([0-9]+)-([0-9]+)-([0-9]+).htm$ index.php?module=shop&action=product_detail&product_id=$1&categ=$2&navop=$3 [QSA,L]
+#RewriteRule ^product-([0-9]+)-([0-9]+)-([0-9]+)-print.htm$ index.php?module=shop&action=product_detail&product_id=$1&categ=$2&navop=$3&print=1 [QSA,L]
+#RewriteRule ^category-([0-9]+)-([0-9]+)-([0-9]+).htm$ index.php?module=shop&categ=$1&parent=$2&navop=$3 [QSA,L]
+#RewriteRule ^category-([0-9]+)-([0-9]+)-([0-9]+)-print.htm$ index.php?module=shop&categ=$1&parent=$2&navop=$3&print=1 [QSA,L]
+#RewriteRule ^basket.htm$ index.php?module=shop&action=showbasket [QSA,L]
+#RewriteRule ^basket-print.htm$ index.php?module=shop&action=showbasket&print=1 [QSA,L]
+#RewriteRule ^manufacturer-([0-9]+).htm$ index.php?module=shop&manufacturer=$1 [QSA,L]
+#RewriteRule ^manufacturer-print.htm$ index.php?module=shop&manufacturer=$1&print=1 [QSA,L]
+#RewriteRule ^checkout.htm$ index.php?module=shop&action=checkout [QSA,L]
+#RewriteRule ^checkout-print.htm$ index.php?module=shop&action=checkout&print=1 [QSA,L]
+#RewriteRule ^my_downloads.htm$ index.php?module=shop&action=mydownloads [QSA,L]
+#RewriteRule ^my_orders.htm$ index.php?module=shop&action=myorders [QSA,L]
+#RewriteRule ^shop.htm$ index.php?module=shop [QSA,L]
+#RewriteRule ^shop-print.htm$ index.php?module=shop&print=1 [QSA,L]
+
+# ЧПУ для модуля Маил
+RewriteRule ^mail-([0-9]+).html$ index.php?id=$1 [QSA,L]
+
+# ЧПУ для модуля Логин (с вариантами обращения)
+RewriteRule ^login/$ index.php? [QSA,L]
+
+RewriteRule ^login/edit/$ index.php?module=login&action=profile [QSA,L]
+RewriteRule ^login/edit/index.php$ index.php?module=login&action=profile [QSA,L]
+RewriteRule ^login/edit/update/$ index.php?module=login&action=profile&sub=update [QSA,L]
+RewriteRule ^login/edit/update/index.php$ index.php?module=login&action=profile&sub=update [QSA,L]
+
+RewriteRule ^login/del/$ index.php?module=login&action=delaccount [QSA,L]
+RewriteRule ^login/del/index.php$ index.php?module=login&action=delaccount [QSA,L]
+RewriteRule ^login/del/yes/$ index.php?module=login&action=delaccount&send=1 [QSA,L]
+RewriteRule ^login/del/yes/index.php$ index.php?module=login&action=delaccount&send=1 [QSA,L]
+
+RewriteRule ^login/register/$ index.php?module=login&action=register [QSA,L]
+RewriteRule ^login/register/index.php$ index.php?module=login&action=register [QSA,L]
+RewriteRule ^login/register/verification/$ index.php?module=login&action=register&sub=register [QSA,L]
+RewriteRule ^login/register/verification/index.php$ index.php?module=login&action=register&sub=register [QSA,L]
+
+RewriteRule ^login/register/thanks/$ index.php?module=login&action=register&sub=thankadmin [QSA,L]
+RewriteRule ^login/register/thanks/index.php$ index.php?module=login&action=register&sub=thankadmin [QSA,L]
+
+RewriteRule ^login/register/final/$ index.php?module=login&action=register&sub=registerfinal [QSA,L]
+RewriteRule ^login/register/final/index.php$ index.php?module=login&action=register&sub=registerfinal [QSA,L]
+
+RewriteRule ^login/password/$ index.php?module=login&action=passwordchange [QSA,L]
+RewriteRule ^login/password/index.php$ index.php?module=login&action=passwordchange [QSA,L]
+
+RewriteRule ^login/reminder/$ index.php?module=login&action=passwordreminder [QSA,L]
+RewriteRule ^login/reminder/index.php$ index.php?module=login&action=passwordreminder [QSA,L]
+
+RewriteRule ^login/exit/$ index.php?module=login&action=logout [QSA,L]
+RewriteRule ^login/exit/index.php$ index.php?module=login&action=logout [QSA,L]
+
+# ЧПУ для модуля Архив
+RewriteRule ^newsarchive-([0-9]+)/([0-9]+)/([0-9]+)/([0-9]+)/$ index.php?module=newsarchive&id=$1&day=$2&month=$3&year=$4 [QSA,L]
+RewriteRule ^newsarchive-([0-9]+)/([0-9]+)/([0-9]+)/([0-9]+)/index.php$ index.php?module=newsarchive&id=$1&day=$2&month=$3&year=$4 [QSA,L]
+RewriteRule ^newsarchive-([0-9]+)/([0-9]+)/([0-9]+)/$ index.php?module=newsarchive&id=$1&month=$2&year=$3 [QSA,L]
+RewriteRule ^newsarchive-([0-9]+)/([0-9]+)/([0-9]+)/index.php$ index.php?module=newsarchive&id=$1&month=$2&year=$3 [QSA,L]
+RewriteRule ^newsarchive-([0-9]+)/([0-9]+)/([0-9]+)/([0-9]+)/([-_a-zA-Z]+)/$ index.php?module=newsarchive&id=$1&day=$2&month=$3&year=$4&sort=$5 [QSA,L]
+RewriteRule ^newsarchive-([0-9]+)/([0-9]+)/([0-9]+)/([0-9]+)/([-_a-zA-Z]+)/index.php$ index.php?module=newsarchive&id=$1&day=$2&month=$3&year=$4&sort=$5 [QSA,L]
+RewriteRule ^newsarchive-([0-9]+)/([0-9]+)/([0-9]+)/([-_a-zA-Z]+)/$ index.php?module=newsarchive&id=$1&month=$2&year=$3&sort=$4 [QSA,L]
+RewriteRule ^newsarchive-([0-9]+)/([0-9]+)/([0-9]+)/([-_a-zA-Z]+)/index.php$ index.php?module=newsarchive&id=$1&month=$2&year=$3&sort=$4 [QSA,L]
+
+# ЧПУ для модуля Карта проектов
+RewriteRule ^roadmap/$ index.php?module=roadmap [QSA,L]
+RewriteRule ^roadmap/index.php$ index.php?module=roadmap [QSA,L]
+RewriteRule ^roadmap/project-([0-9]+)/tasks/open/$ index.php?module=roadmap&action=show_t&pid=$1&closed=0 [QSA,L]
+RewriteRule ^roadmap/project-([0-9]+)/tasks/closed/$ index.php?module=roadmap&action=show_t&pid=$1&closed=1 [QSA,L]
+
+# ЧПУ для модуля Опросы
+RewriteRule ^poll-([0-9]+)/vote/$ index.php?module=poll&action=vote&pid=$1 [QSA,L]
+RewriteRule ^poll-([0-9]+)/vote/index.php$ index.php?module=poll&action=vote&pid=$1 [QSA,L]
+RewriteRule ^poll-([0-9]+)/results/$ index.php?module=poll&action=result&pid=$1 [QSA,L]
+RewriteRule ^poll-([0-9]+)/results/index.php$ index.php?module=poll&action=result&pid=$1 [QSA,L]
+RewriteRule ^poll/archives/$ index.php?module=poll&action=archive [QSA,L]
+RewriteRule ^poll/archives/index.php$ index.php?module=poll&action=archive [QSA,L]
+RewriteRule ^poll-([0-9]+)/form/([-_a-zA-Z0-9]+)/$ index.php?module=poll&action=form&pid=$1&cp_theme=$2&pop=1 [QSA,L]
+RewriteRule ^poll-([0-9]+)/form/([-_a-zA-Z0-9]+)/index.php$ index.php?module=poll&action=form&pid=$1&cp_theme=$2&pop=1 [QSA,L]
+RewriteRule ^poll-([0-9]+)/send-comment/$ index.php?module=poll&action=comment&pid=$1 [QSA,L]
+RewriteRule ^poll-([0-9]+)/send-comment/index.php$ index.php?module=poll&action=comment&pid=$1 [QSA,L]
+
+## Старый ЧПУ (на Док и Ид документов)
+#RewriteRule ^([-_a-zA-Z0-9]+)-([0-9]+)-([-_a-zA-Z0-9]+)-([0-9]+).html$ index.php?id=$2&doc=$1&artpage=$4 [QSA,L]
+#RewriteRule ^([-_a-zA-Z0-9]+)-([0-9]+)-([-_a-zA-Z0-9]+)-([0-9]+)-print.html$ index.php?id=$2&doc=$1&artpage=$4&print=1 [QSA,L]
+#RewriteRule ^([-_a-zA-Z0-9]+)-([0-9]+)-([0-9]+).html$ index.php?id=$2&doc=$1&apage=$3 [QSA,L]
+#RewriteRule ^([-_a-zA-Z0-9]+)-([0-9]+)-([0-9]+)-print.html$ index.php?id=$2&doc=$1&apage=$3&print=1 [QSA,L]
+#RewriteRule ^index-([0-9]+).html$ index.php?id=$1 [QSA,L]
+#RewriteRule ^index-([0-9]+)-print.html$ index.php?id=$1&print=1 [QSA,L]
+#RewriteRule ^([-_a-zA-Z0-9]+)-([0-9]+).html$ index.php?id=$2&doc=$1 [QSA,L]
+#RewriteRule ^([-_a-zA-Z0-9]+)-([0-9]+)-print.html$ index.php?id=$2&doc=$1&print=1 [QSA,L]
+RewriteRule ^index.html$ index.php [QSA,L]
+RewriteRule ^index-print.html$ index.php?print=1 [QSA,L]
+
+# ЧПУ для модуля RSS
+RewriteRule ^rss/rss-([0-9]+).xml$ /rss/index.php?id=$1 [QSA,L]
+
+<IfModule mod_rewrite.c>
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-l
+  RewriteRule .* index.php?id=2 [L]
+</IfModule>

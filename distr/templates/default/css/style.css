@@ -1,0 +1,283 @@
+body, div, td, th, .button, 
+.cp_quickfinder, .code_block,
+.loginfield                         {font:12px arial, verdana, 'trebuchet ms', verdana; color:#333}
+textarea,input,select               {font:11px arial, verdana, 'trebuchet ms', verdana; color:#333}
+fieldset                            {background-color:#f5f5f5; border:1px solid #ccc}
+legend                              {color:#88c13e; padding:3px; border:0 solid #ccc; background-color:#fff}
+label                               {}
+
+h1, h2, h3, form                    {display:inline}
+h1									{letter-spacing:-1px; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 24px; font-weight:normal;}
+h2									{letter-spacing:-1px; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 22px; font-weight:normal; color: #516E48;}
+h3									{letter-spacing:-1px; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 20px; font-weight:normal;}
+
+a:link,
+a:visited                           {color:#88c13e; text-decoration:none}
+a:hover                             {color:#000; text-decoration:underline}
+
+/* _______________________ Сайт _______________________ */
+html                                {background:#eee url(/templates/default/images/body.gif) repeat-x}
+body                                {margin:1em 0; padding:0; font-size:.8em; text-align:center}
+#body                               {text-align:left; background:#fff; height:100%; padding:1px; margin:0 auto; padding:10px; margin-top:10px; width:980px}
+
+/* _______________________ Сайт-шапка _______________________ */
+#topheader                          {background:#fff url(/templates/default/images/header.gif) repeat-x right 0; height:120px}
+#banner                             {text-align:center}
+
+/* _______________________ Место под шапкой _______________________ */
+#topbar                             {text-align:right; background-color:#484848; padding:2px; border-bottom:1px solid #fff; border-top:1px solid #fff}
+
+/* _______________________ Логин-форма _______________________ */
+#loginform                          {margin-top:20px; padding:10px; background-color:#fff; border:1px solid #ddd}
+#loginform .loginfield              {padding:3px; border:1px solid #ddd; color:#88c13e; margin-bottom:5px; margin-top:2px}
+#loginform .button                  {border:1px solid #88c13e; color:#fff; background-color:#88c13e}
+#loginform  a:link,
+#loginform  a:hover                 {text-decoration:underline}
+
+/* _______________________ Левый столбец - Обычный _______________________ */
+#leftnormal                         {margin-top:20px}
+.boxes_right                        {margin-top:20px; padding:10px; background-color:#fff; border:1px solid #ddd}
+
+/* _______________________ Контент _______________________ */
+#content                            {line-height:1.5em; position:relative;height:100%; min-height:500px; width:720px; float:left; background-color:#fff; padding-left:20px; margin-top:20px}
+#content .bull                      {font-size:14px; color:#ccc}
+
+/* _______________________ Ссылки Навигация _______________________ */
+#leftnavi                           {float:left; width:224px; padding:15px; padding-left:0; margin-top:5px}
+#leftnavi ul                        {display:inline; margin:0; padding:0}
+#leftnavi li                        {display:inline; margin:0; padding:0}
+
+/* _______________________ Ссылки Навигация 1 / 1.Уровень _______________________ */
+#leftnavi a:link,
+#leftnavi a:visited                 {color:#88c13e; text-decoration:underline}
+#leftnavi a:hover                   {color:#000; text-decoration:underline}
+
+#leftnavi a.first_inactive:link,
+#leftnavi a.first_inactive:visited  {padding:8px; padding-left:17px; display:block; color:#777; background-color:#f5f5f5; text-decoration:none; border-bottom:1px solid #fff}
+#leftnavi a.first_inactive:hover    {padding:8px; padding-left:17px; display:block; color:#fff; background:#88c13e url(/templates/default/images/nav_akt.gif) no-repeat 5px 12px; text-decoration:none}
+
+#leftnavi a.first_active:link,
+#leftnavi a.first_active:visited    {padding:8px; padding-left:17px; display:block; color:#fff; background:#88c13e url(/templates/default/images/nav_akt.gif) no-repeat 5px 12px; text-decoration:none; border-bottom:1px solid #fff}
+
+/* _______________________ Ссылки Навигация 1 / 2.Уровень _______________________ */
+#leftnavi a.second_inactive:link,
+#leftnavi a.second_inactive:visited {padding:6px; padding-left:30px; display:block; color:#777; background-color:#f5f5f5; text-decoration:none; border-bottom:1px solid #ddd}
+
+#leftnavi a.second_active:link,
+#leftnavi a.second_active:visited   {font-weight:bold; padding:6px; padding-left:30px; display:block; color:#999; background-color:#f5f5f5; text-decoration:none; border-bottom:1px solid #ddd}
+
+/* _______________________ Ссылки Навигация 1 / 3.Уровень _______________________ */
+#leftnavi a.third_inactive:link,
+#leftnavi a.third_inactive:visited  {padding:4px; padding-left:40px; display:block; color:#999; background-color:#fdfdfd; text-decoration:none; border-bottom:1px solid #ddd}
+
+#leftnavi a.third_active:link,
+#leftnavi a.third_active:visited    {font-style:italic; padding:4px; padding-left:40px; display:block; color:#999; background-color:#fdfdfd; text-decoration:none; border-bottom:1px solid #ddd}
+
+.container_pages_navigation         {padding:4px; border-top:1px solid #ccc; margin-top:10px}
+
+/* _______________________ Сайт - низ _______________________ */
+#footer, 
+#footer td,
+#footer div                         {font-size:10px; padding:2px; font-weight:bold; color:#fff; background-color:#484848; padding:4px}
+
+#footer a:link,
+#footer a:visited                   {color:#fff}
+#footer a:hover                     {color:#fff; text-decoration:underline}
+
+.title_navi                         {padding:5px; font-weight:bold; color:#fff; background-color:#999}
+.cp_quickfinder                     {color:#999; background-color:#fff; border:1px solid #fff}
+
+.logintext                          {color:#999}
+.logintext_error                    {color:#a9a9a9}
+.clear                              {clear:both; height:1px; overflow:hidden}
+
+/* _______________________ PHP Форматирование _______________________ */
+.code_inline, 
+.code_block                         {font-size:10px}
+
+/* _______________________ Оформление нумерации страниц _______________________ */
+.pages_navigation                   {font-weight:normal; color:#fff; border:1px solid #88c13e; background-color:#88c13e; text-decoration:none; padding-bottom:1px; padding-left:4px; padding-right:4px; padding-top:1px}
+#page_navigation                    {padding:4px; border-top:1px solid #ccc; margin-top:10px; } 
+
+#page_navigation a:link,
+#page_navigation a:visited          {font-weight:normal; color:#fff; border:1px solid #ccc; background-color:#ccc; text-decoration:none; padding-bottom:1px; padding-left:4px; padding-right:4px; padding-top:1px}
+#page_navigation a:hover            {font-weight:normal; color:#fff; border:1px solid #88c13e; background-color:#88c13e; text-decoration:none; padding-bottom:1px; padding-left:4px; padding-right:4px; padding-top:1px}
+
+a.page_navigation:link,
+a.page_navigation:visited           {font-weight:normal; color:#fff; border:1px solid #ccc; background-color:#ccc; text-decoration:none; padding-bottom:1px; padding-left:4px; padding-right:4px; padding-top:1px}
+
+a.page_navigation:hover,
+a.page_navigation, .page_navigation {font-weight:normal; color:#fff; border:1px solid #88c13e; background-color:#88c13e; text-decoration:none; padding-bottom:1px; padding-left:4px; padding-right:4px; padding-top:1px}
+
+/* _______________________ Форматирование модулей  _______________________ */
+/* _______________________ POPUP (Модуль)  _______________________ */
+#body_popup                         {font-size:11px; text-align:left; background-color:#fff; padding:10px; margin:8px}
+#module_intro                       {color:#999}
+.module_form_headers                {margin-top:5px; padding:5px; background-color:#f5f5f5; border:1px solid #ddd}
+
+#module_header                      {padding:5px; background:#fff url(/templates/default/images/header.gif) repeat-x right 0; height:30px}
+#module_header h2,h3,h4             {font-size:17px; display:inline}
+#module_content                     {padding:5px}
+#module_content .formleft,.formright{font-style:normal; line-height:1.5em; margin-bottom:5px}
+#module_content  em                 {font-style:italic}
+
+/* _______________________ Модуль "Поиск"  _______________________ */
+.button                             {background-color:#88c13e; color:#fff; border:1px solid #88c13e}
+.mod_search_title                   {padding:4px; font-size:14px; font-weight:bold; background-color:#eee; }
+.mod_search_text                    {padding:8px; color:#000}
+.mod_search_footernavi              {padding:2px; border-bottom:0 solid #ccc; margin-bottom:5px}
+.mod_search_highlight               {color:#000; font-weight:bold; background-color:#eee; padding:1px}
+.mod_search_pages                   {padding:4px; border:1px solid #ccc; margin-top:10px}
+.mod_search_pages a:link, 
+.mod_search_pages a:visited         {padding-left:2px; padding-right:2px}
+.mod_searchbox                      {margin-top:20px; padding:10px; background-color:#f5f5f5; border:1px solid #ddd}
+/*input.query                         {background-image:url('/modules/search/templates/images/icoSearch.gif'); background-repeat:no-repeat; background-attachment:scroll; background-position:2px center; padding-left:17px}*/
+
+/* _______________________ Модуль "Контакты"  _______________________ */
+#mod_contact_box                    {position:relative; padding:15px}
+#mod_contact_box label              {font-style:italic}
+.mod_contact_infobox                {margin-top:2px; padding:4px; border-bottom:1px solid #ccc}
+.mod_contact_left                   {margin-bottom:2px} /* float:left; width:140px; margin:3px */
+.mod_contact_left_star              {color:#88c13e; font-size:14px}
+.mod_contact_right                  {margin-bottom:5px} /*  float:left; width:300px; margin:3px */
+.mod_contact_right small            {font-size:12px; color:#88c13e}
+
+/* _______________________ Модуль "Галерея"  _______________________ */
+.mod_gal_imgcontainer               {float:left; padding:0; border:1px solid #ddd; margin:3px}
+.mod_gal_header                     {color:#333; background-color:#F4F4F4; padding:5px; border-bottom:1px solid #ddd}
+.mod_gal_img                        {padding:10px}
+.mod_gal_kbsize                     {color:#999; text-align:center; margin-top:3px}
+
+/* _______________________ Модуль "Комментарии"  _______________________ */
+.mod_comment_header                 {color:#666; background-color:#f5f5f5; padding:3px}
+.mod_comment_body                   {padding:10px; margin-bottom:10px}
+.mod_comment_highlight              {border:2px solid #88c13e}
+.mod_comment_changed                {color:#ccc; font-size:10px}
+
+/* _______________________ Модуль "Новостной архив"  _______________________ */
+.arc_header td a                    {color:#777; background-color:#f5f5f5; text-decoration:underline; padding:5px; display:block}
+.arc_header td a:hover              {color:#FFF; background-color:#88c13e; text-decoration:none}
+
+/*________________________ Модуль "Карта проектов" ________________________ */
+table.progress                      {width:650px; height:25px; border:1px solid #d7d7d7; border-collapse:collapse; border-spacing:0; float:left; margin:0; padding:0; empty-cells:show}
+table.progress td.closed            {background:#53A622}
+table.progress td :hover            {background:none}
+.dl_a_1                             {background:#fdc; border-color:#e88; color:#a22; padding:5px}
+.dl_b_1                             {background:#fed; border-color:#e99; color:#a22; padding:5px}
+.dl_a_2                             {background:#ffb; border-color:#eea; color:#880; padding:5px}
+.dl_b_2                             {background:#ffd; border-color:#dd8; color:#880; padding:5px}
+.dl_a_3                             {background:#fbfbfb; border-color:#ddd; color:#444; padding:5px}
+.dl_b_3                             {background:#f6f6f6; border-color:#ccc; color:#333; padding:5px}
+.dl_a_4                             {background:#e7ffff; border-color:#cee; color:#099; padding:5px}
+.dl_b_4                             {background:#dff; border-color:#bee; color:#099; padding:5px}
+.dl_a_5                             {background:#e7eeff; border-color:#cde; color:#469; padding:5px}
+.dl_b_5                             {background:#dde7ff; border-color:#cde; color:#469; padding:5px}
+.dl_a_6                             {background:#f0f0f0; border-color:#ddd; color:#888; padding:5px}
+.dl_b_6                             {background:#f0f0f0; border-color:#ddd; color:#888; padding:5px}
+.mod_roadmap_titlebar               {font-weight:bold; border-top:1px solid #b4b4b4;  border-bottom:1px solid #b4b4b4; background-color:#eaeaea; padding:5px}
+.mod_roadmap_topheader              {background-color:#b4b4b4; color:#fff; padding:4px}
+
+/*________________________ Модуль "Голосование" ________________________ */
+.mod_poll_title                     {color:#999}
+.mod_poll_table                     {background:#DEDEDE; height:9px}
+.mod_poll_comments                  {border:1px solid #DEDEDE; margin:5px; padding:5px}
+.mod_pollbox                        {padding:5px; background-color:#f5f5f5; border:1px solid #ddd}
+.mod_pollbox p                      {padding:0 0 5px 0; margin:0 0 5px 0}
+.mod_poll_first                     {background-color:#fff}
+.mod_poll_second                    {background-color:#eaeaea}
+
+/*________________________ Модуль "Гостевая книга" ________________________ */
+#guest_pop                          {margin:5px; text-align:left;}
+.guest_tableborder                  {background-color: #cdcdcd; padding:0px; border:0px solid #878373}
+.guest_info_meta                    {background-color: #fafafa; padding: 8px; }
+.box_inner                          {background-color:#fff;}
+.box_innerhead                      {background:#E7E7E7 url(../modules/guestbook/images/box_innerhead.gif);padding:5px; border-bottom: 0px solid #D7D7D7; font-weight:bold;position:relative}
+.commBodyTable                      {border:1px dotted #B5B5B5;}
+.commNameTd,.commDateTd             {border-bottom:1px dotted #B5B5B5;background:#F4F4F4;}
+.commName                           {color:#6E6E6E;}
+.commNumTd                          {border-bottom:1px dotted #B5B5B5;background:#F4F4F4; color:#88c13e}
+.mini                               {color:#333; font-size:11px;}
+.button                             {background-color:#88c13e; color:#fff; border: 1px solid #88c13e}
+
+/* _______________________ Модуль "Профиль" _______________________ */ 
+#userpage                                                 {}
+.mod_userpage_border_profil         {border: 1px solid #E8E7E3; width:420px; height:180px; text-align:left}
+.mod_userpage_border                {border: 1px solid #E8E7E3; width:240px;}
+.mod_userpage_header                {padding:8px; margin:8px; background: #EEEEEE;}
+.mod_userpage_content               {padding:8px; margin:8px;}
+
+.mod_userpage_right                 {float:right; margin-top:-12px; vertical-align:top;}
+.mod_userpage_profil                {position:relative;  width:150px; height:150px; margin-left:200px; margin-top:15px;}
+.mod_userpage_avatar                {position:relative; width:150px; height:150px; margin-left:50px; margin-top:-140px;}
+
+.mod_userpage_border_guestbook      {border: 1px solid #E8E7E3; width:420px; text-align:left;}
+.mod_userpage_h1                    {margin-right:5px; margin-left:-5px; color:#CCCCCC;}
+.mod_userpage_top                   {border-bottom: 1px dotted #CCCCCC; margin-bottom:5px; color:#999;}
+.mod_userpage_del                   {float:right; vertical-align:top; }
+
+.mod_userpage_border_myprofile      {border: 1px solid #E8E7E3; width:90%; height:auto; text-align:left;}
+
+.mod_userpage_first                 {background-color: #f1f1f1}
+.mod_userpage_second                {background-color: #fafafa}
+
+/*________________________ Модуль "DOWNLOAD" ________________________ */
+#mod_download                                 {}
+#mod_download h1                              {}
+
+#mod_download a:link,
+#mod_download a:visited                       {text-decoration:underline}
+#mod_download a:hover                         {text-decoration:none}
+
+#mod_download .download_categ,
+#mod_download a.download_categ:link,
+#mod_download a.download_categ:visited        {}
+#mod_download a.download_categ:hover          {}
+
+#mod_download a.mod_download_navi:link,
+#mod_download a.mod_download_navi:visited     {color:#dea407; text-decoration:none}
+#mod_download a.mod_download_navi:hover       {color:#000000; text-decoration:none}
+
+#mod_download a.mod_download_ajsearch:link,
+#mod_download a.mod_download_ajsearch:visited {color:#000; text-decoration:none; display:block}
+#mod_download a.mod_download_ajsearch:hover   {background-color:#b4b4b4; color:#fff; text-decoration:none; display:block}
+
+.mod_download_topnav                          {border:1px solid #e8e7e3; padding:4px; margin-bottom:8px}
+.mod_download_ajaxsearchcontainer             {background-color:#b4b4b4; padding:5px} 
+.mod_download_ajaxsearchcontainer_td          {background-color:#b4b4b4; color:#fff} 
+.mod_download_ajaxsearchdiv                   {background-color:#fff; padding:0px; width:232px; position:absolute; border:1px solid #000; border-top:1px solid #999}
+.mod_download_ajaxsearch_info                 {background-color:#eaeaea; padding:5px}
+.mod_download_ajaxsearchfield                 {width:230px}
+
+.mod_download_topheader                       {background-color:#b4b4b4; color:#fff; padding:4px}
+.mod_download_dlbox                           {border:1px solid #fff; padding:2px}
+.mod_download_spacer                          {border-bottom:1px solid #ccc5af; margin-bottom:10px; margin-top:10px}
+.mod_download_commentbox                      {background-color:#fcfaf2; border:1px solid #ccc5af; padding:5px; height:150px; overflow:auto}
+.mod_download_commenterror                    {font-weight:bold; font-style:italic}
+
+#mod_download a.mod_download_sort:link,
+#mod_download a.mod_download_sort:visited     {color:#fff; text-decoration:underline}
+#mod_download a.mod_download_sort:hover       {color:#fff; text-decoration:none}
+
+.mod_download_titlebar                        {font-weight:bold; border-top:1px solid #b4b4b4; border-bottom:1px solid #b4b4b4; background-color:#eaeaea; padding:5px}
+.mod_download_nospam                          {color:#f00}
+
+.dl_nt_first                                  {background-color:#fff; padding:5px; border-bottom:1px solid #fff;}
+.dl_nt_second                                 {background-color:#eaeaea; padding:5px; border-bottom:1px solid #fff;}
+.dl_first                                     {background-color:#fff; padding:4px; border:1px solid #ccc5af;}
+.dl_second                                    {background-color:#eaeaea; padding:4px; border:1px solid #ccc5af;}
+
+/*________________________ Модуль "Вопрос Ответ" ________________________ */
+.box_innerhead {background:#E7E7E7 url(../modules/faq/templates/box_innerhead.gif);padding:5px; border-bottom: 0px solid #D7D7D7; font-weight:bold;position:relative}
+
+/* _______________________ OVERLIB-Контейнер (Всплывающая подсказка)  _______________________ */
+.overlib_body                       {font-size:11px; background-color:#484848; color:#fff;text-align: left;}
+.item_title                         {font-weight:normal; background-color:#ddd; color:#666}
+.overlib_border                     {background-color:#484848}
+
+.glossar                            {margin-right:10px; margin-top:2px; padding:4px; background-color:#f5f5f5; border:1px solid #ddd}
+
+.formleft                           {float:left; width:180px; padding:2px}
+.formright                          {float:left; width:270px; padding:1px}
+.formright  small                   {color:#88c13e; font-size:10px}
+.regerror                           {color:#88c13e}
+.absmiddle                          {vertical-align:middle}

@@ -1,0 +1,1 @@
+<a href="/rss/rss-{$id|stripslashes}.xml" target="blank"><img src="/modules/rss/templates/feed.gif" border="0" title="{#RSS_IMAGE_TITLE#}" /></a>
